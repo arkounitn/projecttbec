@@ -1,0 +1,417 @@
+\documentclass[pra,twocolumn,aps,showpacs,longbibliography]{revtex4-1}
+\usepackage{hyperref}
+\hypersetup{
+	%  colorlinks=false,
+	colorlinks=true,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{times}
+\usepackage{siunitx}
+\usepackage{xfrac}
+% Additional packages
+\usepackage{braket}% Dirac braket
+\usepackage{cases}% Numbered cases
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\title[]{Miscible-Immiscible transition of uniform two-dimensional Bose-Bose mixtures}
+	\author{}
+	\affiliation{INO-CNR BEC Center and Dipartimento di Fisica, Universit{\'a} di Trento, 
+	              38123 Trento, Italy}
+%\pagewiselinenumbers
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%                  Abstract                        %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+ We examine the role of thermal fluctuations in uniform two-dimensional binary Bose mixtures
+of dilute atomic gases. To this end, we have employed the beyond mean-field Stochastic Projected Gross-Pitaevskii
+formalism to probe the impact of thermal atoms to the phenomenon of phase-separation in
+two-component Bose-Bose mixtures. We demonstrate that a fully miscible phase at $T=0$ gives rise to a demixed
+one at $T\neq0$. These are characterized by the equilibrium density profiles and the dynamical response to 
+some weak external perturbation obtained within the gamut of Stochastic Gross-Pitaevskii theory. We find that the 
+phase-transition is consistent with the analytical prediction from the mean-field Hartree-Fock theory which 
+predicts a divergent behaviour in the spin susceptibility.
+\end{abstract}
+
+%\pacs{67.85.−d, 67.40.Vs, 67.57.Fg, 67.57.De }
+
+% 67.85.−d Ultracold gases, trapped gases 
+% 67.40.Vs Vortices and turbulence 
+% 67.57.Fg Textures and vortices 
+% 67.57.De Superflow and hydrodynamics 
+
+
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                   Section: Introduction                         %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}\label{Introduction}
+
+The study of phase-separation in a two-component classical fluid is of paramount importance, 
+and more so, its dependence on the temperature. One representative example is the 
+temperature driven phase-transition in methanol-cyclohexane and aniline-cyclohexane mixtures
+~\cite{stanley_71,debye_62}. In the context of multicomponent quantum gases~\cite{pethick_08,pitaevskii_16}, 
+this has been a subject of intense theoretical investigation over the last 
+two decades~\cite{ho_96,timmermans_98,ao_98,trippenbach_2000,
+schaeybroeck_08, wen_12, roy_15a,ota_19}. This is supplemented by the ongoing experimental efforts with binary 
+quantum gases~\cite{modugno_02,thalhammer_08,lercher_11,mccarron_11,pasquiou_13,papp_08,tojo_10,nicklas_11}. 
+In particular, the observation of two-species Bose-Einstein 
+condensate  with atoms of the same element in different hyperfine states~\cite{myatt_97,stamper_kurn_98,stenger_98,
+sadler_06} has received much attention because of its simplicity, yet, reveal essential kinetics
+related to the transition~\cite{kawaguchi_12,stamperkurn_13}. 
+
+The theoretical constraint for phase-separation at 
+zero-temperature in the mean-field regime, is 
+that the intra-$(g_{11},g_{22})$ and interspecies$(g_{12})$ strengths must satisfy the 
+inequality $g_{12}^2 > g_{11}g_{22}$~\cite{pethick_08,pitaevskii_16}. 
+However, at non-zero temperatures, deviations from this constraint are expected to appear.
+At finite temperature, theoretical studies have mainly addressed quasi-1D or 3D systems
+employing the mean-field treatment including the Hartree-Fock~\cite{ohberg_98,shi_2000,schaeybroeck_13}, 
+Hartree-Fock-Bogoliubov-Popov~\cite{ohberg_99,roy_15a,armaitis_15},%, stochastic~\cite{su_11,liu_16},
+and Zaremba-Nikuni-Griffin formalism~\cite{lee_16,griffin_09}. It is worth mentioning here that these theories 
+rely on the presence of the true condensate. Stochastic growth dynamics for quasi-1D and quasi-2D
+multicomponent mixtures has been investigated in Ref.~\cite{su_11,liu_16}. However, there have been no finite 
+temperature studies for 2D homogeneous Bose mixtures using beyond mean-field theory. This sets the stage
+for our current work. Having said that, recently, Ota \emph{et al.}~\cite{ota_19} predicted a temperature 
+induced magnetic phase transition in an uniform 3D Bose-Bose mixture using Popov theory. It is then natural to ask whether such a 
+phase-transition also exists in 2D, where real condensation does not occur due to Mermin-Wagner-Hohenberg (MWH) 
+theorem~\cite{hohenberg_65,mermin_66}.%, as a result
+%of Bose-Einstein statistics and fluctuations.
+
+The present work attempts to bridge this research gap, where we extend our study to the beyond mean-field level 
+and explore the case of a uniform two-dimensional Bose-Bose mixture occupying two 
+different hyperfine states, satisfying the miscibility condition at zero temperature.
+Though real condensation is not possible in 2D at non-zero temperature, it undergoes a 
+Berezinskii-Kosterlitz-Thouless (BKT) phase transition~\cite{berezinskii_72,kosterlitz_72,kosterlitz_73,kosterlitz_16} between a superfluid
+and non-superfluid regime emanating from the binding and unbinding of vortex-antivortex pairs at $T_{\rm BKT}$~\cite{prokofev_01}.
+Observation of such transition in the domain of ultracold quantum gases has been possible with 
+quasiuniform box traps~\cite{gaunt_13,chomaz_15}. One major advantage of using 2D box traps is that the dynamics
+of phase-separation depends only on the interplay between kinetic and interaction energy; and one
+can encounter a novel phase-diagram which would otherwise be non-existent due to trap inhomogeneity. As a plausible route
+to validate our prediction, at the ouset, we obtain the phase-diagram
+as a function of temperature and interspecies interaction strength and identify the miscible
+and immiscible regions using the mean-field Hartree-Fock theory~\cite{ohberg_98,shi_2000}. The magnetic phase-transition is identified
+by  a sudden discontinuity in the susceptibility. 
+Furthermore, the mean-field phase diagram is corroborated with the steady-state solutions obtained using the Stochastic (projected) 
+Gross-Pitaevskii(SPGPE)~\cite{blakie_08,proukakis_08} theory for homogeneous 2D Bose mixtures.
+Finally, we verify these phases by extracting the spin speed of sound within the SPGPE and compare them
+with the analytical predictions at zero temperature in different interaction regimes. The response of these phases
+to weak linear perturbation at non-zero temperature is also presented to substantiate our findings.
+
+ 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Magnetic susceptibility
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Magnetic phase transition: Hartree-Fock formalism}
+
+The magnetic susceptibility for a homogeneous binary mixture of Bose gases at finite temperature is defined through the Helmoltz free energy per unit volume $V$ according to:
+\begin{equation}\label{Eq.kappaM_thermo}
+\kappa_M^\mathrm{mix} = \left( \frac{\partial^2 F/V}{\partial m^2} \right)^{-1}_{m=0} \, ,
+\end{equation}
+with $m=n_1-n_2$ the magnetization density. For weak inter-species coupling, the free energy can be expressed as a sum of contributions from each species of the mixture and a temperature independent inter-species interaction term, $F=F_1(n_1)+F_2(n_2)+g_{12} n_1 n_2$.  By further introducing the isothermal compressibility for a single component $\kappa_{Ti}=\left[ \partial^2 (F_i/V) / \partial n_i^2 \right]^{-1}$, with $i=\{1, 2\}$, Eq. \eqref{Eq.kappaM_thermo} takes the convenient form
+\begin{equation}\label{Eq.kappaM}
+\kappa_M^\mathrm{mix}=  \frac{2\kappa_T}{1- g_{12}\kappa_T} \, ,
+\end{equation}
+with $\kappa_{T1}=\kappa_{T2} \equiv \kappa_T$ and we have assumed that the densities of the two components are equal: $n_1=n_2\equiv n/2$. The onset of the magnetic instability is fixed by the simple condition $\kappa_T^{-1} = g_{12}$ and is favored at finite temperature due to the increase of the isothermal compressibility of each species. It is worth mentioning that expression \eqref{Eq.kappaM} only requires weak interaction between the two components, and the spin susceptibility is easily determined once the temperature dependence of the single-component isothermal compressibility is known. 
+\par
+For the single-species dilute Bose gas, an accurate description in the fluctuation region is provided by the universal relations (UR), which state that the equation of state in the vicinity of the critical density $n_c$, characterizing the onset of the superfluid phase transition, depends on a single variable $X$ related to the interaction $g$ and to the reduced chemical potential $\beta \mu$ (=$\mu/(k_BT))$, according to $ n-n_c=f(X)$. Explicit results for the universal functions $f$ in 2D were calculated from classical Monte-Carlo simulations in Refs. \cite{Prokofev2002, Prokofev2004}. However, the UR approach provides the proper description of the thermodynamic functions only in the critical region near the phase transition. We therefore also call on the mean-field Hartree-Fock (HF) theory to provide a complementary description of thermodynamics. 
+\par
+The Hartree-Fock chemical potential for a single-component Bose gas below the superfluid phase transition is given by \cite{pitaevskii_16}
+\begin{equation}\label{Eq.mu}
+\mu = g (n_0 + 2 n')  \, ,
+\end{equation}
+with $n=n_0+n'$ the total atoms density. Although the above expression remains unchanged in three or two dimensions, the physical meaning behind the quantity $n_0$ is formally different. Indeed, while in 3D $n_0$ in Eq. \eqref{Eq.mu} corresponds to the condensate density, this identification no longer holds in 2D, where BEC is ruled out at finite temperature. Instead $n_0$ in 2D corresponds to the \textit{quasi}-condensate, which characterizes the suppression of density fluctuations according to:
+\begin{equation}\label{Eq:def_qc}
+n_0 = \sqrt{2 \langle \vert \hat{\Psi} \vert^2 \rangle^2 - \langle \vert \hat{\Psi} \vert^4 \rangle } \, ,
+\end{equation}
+where $\hat{\Psi}$ is the bosonic field operator. For sufficiently low temperatures, the quasi-condensate is known to play the same role as the genuine condensate \cite{Kagan1987}. As for the non-condensed component, it is defined through the Bose distribution function $n'=V^{-1} \sum_\mathbf{p} [e^{\beta p^2/(2m)}z^{-1}-1]^{-1}$, which takes into account the mean-field effect in the single particle energy through the expression $z=\exp[\beta (\mu - 2gn)]$ for the fugacity. It takes the explicit form
+\begin{equation}\label{Eq.n'}
+n' = \frac{-1}{\lambda_T^{2}} \ln \left( 1-z \right) \, ,
+\end{equation}
+with $\lambda_T$ the thermal de Broglie wavelength. It is worth noticing that Eq. \eqref{Eq.n'} yields a divergent behavior for $\mu =2gn$, in accordance with the fact that BEC does not exist in 2D at finite temperature. However, below the BKT superfluid transition $k_B T_\mathrm{BKT}=\frac{2\pi\hbar^2n}{m} \ln^{-1}(380 \hbar^2/(mg))$, one can safely use expression \eqref{Eq.mu} for the evaluation of thermodynamic quantities. 
+\par
+In order to discuss the magnetic instability at finite temperature, let us evaluate the single-component compressibility, from the thermodynamic relation $\kappa_T = \partial n / \partial \mu$:
+\begin{equation}\label{Eq.kappaT}
+\kappa_T = \frac{1}{g} \frac{1-g \beta \left(e^{\beta gn_\mathrm{qc}}-1 \right)^{-1}/\lambda_T^2}{1-2 g \beta \left(e^{\beta gn_\mathrm{qc}}-1 \right)^{-1}/\lambda_T^2} \ .
+\end{equation}%
+At $T=0$, Eq. \eqref{Eq.kappaT} yields the well known result $\kappa_T= 1/g$, while the spin susceptibility \eqref{Eq.kappaM} of the mixture takes the value $\kappa_M^\mathrm{mix}= 2/(g-g_{12})$, revealing its large increase near the miscible-immiscible phase transition occurring for $g_{12}=g$. For example, in the case of a mixture of ${}^{23}\mathrm{Na}$ atoms occupying the  hyperfine states $\ket{F=1,m_F=\pm 1}$, one has $\delta g/g=0.07$ yielding an increase of a factor $\sim 14$ of the $T=0$ value of the spin polarizability with respect to the value obtained in the absence of interatomic interactions. The presence of the factor 2 in the denominator of Eq. \eqref{Eq.kappaT} is crucial for the increase of compressibility at finite temperature and thus for the description of the magnetic instability. This is the direct consequence of  exchange effects which are responsible for the increase of the  interaction energy with respect to the value predicted at $T=0$ when the whole system is fully Bose condensed. This effect explicitly shows up in the temperature dependence of the chemical potential Eq. \eqref{Eq.mu} and in the density dependence of the non-condensed component through the fugacity (see Eq. \eqref{Eq.n'}).
+\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=0.8\columnwidth]{Fig3.eps}
+\caption{(a)Single-component isothermal compressibility of a 2D Bose gas with $mg/\hbar^2=0.095$. The blue solid line is the prediction of HF theory Eq. \eqref{Eq.kappaT}, while the black circles are results from universal relations of Ref. \cite{Prokofev2002}, calculated in the same way as the 3D case. (b) Spin susceptibility Eq. \eqref{Eq.kappaM} in a 2D Bose mixture with interaction parameters $mg/\hbar^2=0.095$ and $\delta g/g=0.07$.} 
+\label{fig:thermo2D}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In Fig. \ref{fig:thermo2D}(a) we compare $\kappa_T$ calculated from Eq. \eqref{Eq.kappaT} with the results of universal relations of Ref. \cite{Prokofev2002}, using a typical interaction parameter $m g/\hbar^2 = 0.095$ \cite{ville_18}. The Hartree-Fock theory is able to catch the qualitative behavior of the isothermal compressibility, with its characteristic enhancement when $T$ approaches the BKT transition, although, differently from UR, it does not predict the typical peak just above the critical point. Our result for the spin susceptibility Eq. \eqref{Eq.kappaM} is reported in Fig. \ref{fig:thermo2D}(b), in the case of the sodium mixture discussed above. Remarkably, the instability condition $\kappa_T^{-1} = g_{12}$ takes place at temperatures well below the critical temperature, $T_M \simeq 0.54 T_\mathrm{BKT}$. It is worth noticing that the decrease of $\kappa_T$ above $T_\mathrm{BKT}$ predicted by the UR in Fig \ref{fig:thermo2D}(a) suggests that the instability condition characterizing the magnetic phase transition should be satisfied also above the BKT transition.
+\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=1.0\columnwidth]{Fig4.eps}
+\caption{Phase diagram for 2D binary condensates with $mg/\hbar^2=0.095$. The blue solid and the green dotted lines are the magnetic instability temperature $T_M$ evaluated from the pole of Eq. \eqref{Eq.kappaM} using the HF compressibility Eq. \eqref{Eq.kappaT} and the small $g$ expansion Eq. \eqref{Eq.TM2D}, respectively. The red dashed line is the UR prediction for the second magnetic instability temperature, obtained from an interpolation of the data points for the equation of state given in Ref. \cite{Prokofev2002}.  The gray area corresponds to the region where the mixture is dynamically unstable against phase separation.} 
+\label{fig:phaseDiag2D}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Finally, one can derive an analytical expression for the spinodal temperature $T_M$ below $T_\mathrm{BKT}$, by using the small-$g$ expression for the single component compressibility: $\kappa_T^{-1} \simeq g(1-2\mathcal{D}_\mathrm{qc}^{-1})/(1-\mathcal{D}_\mathrm{qc}^{-1})$ with $\mathcal{D}_\mathrm{qc}=\lambda_T^2 n_\mathrm{qc}$. We briefly note that written in this form, the isothermal compressibility reflects the universal behavior of a 2D Bose gas. Indeed, $\kappa_T/\kappa_T(0)$ does not explicitly depend on the value of the coupling constant $g$ and we have further verified that the same expression can be obtained within the modified Popov theory \cite{andersen_02, khawaja_02, Lim2008}. In the region $T \ll T_\mathrm{BKT}$ for which $\mathcal{D}_{qc} \simeq \lambda_T^2 n  \gg 1$, one obtains the simple estimate
+\begin{equation}\label{Eq.TM2D}
+\frac{m T_M}{2\pi\hbar^2n} \simeq \frac{\delta g}{g}.
+\end{equation}
+holding for $gn \ll k_B T_\mathrm{BKT}$ and $\delta g \ll g$. The results for $T_M$ from Eq. \eqref{Eq.TM2D} as well as the numerical calculation from the pole of the spin susceptibility is reported in Fig. \ref{fig:phaseDiag2D}.
+\par
+The above results for the magnetic instability of the binary mixture suggest the occurrence of a first order phase transition, the value of $T_M$ corresponding to the spinodal temperature above which the unpolarized uniform configuration of the mixture is dynamically unstable. The actual  transition to a demixed configuration is then expected to take place at smaller values of the temperature and can be identified by comparing the free energy of the uniform unpolarized configuration  with the one of the phase separated configuration. In this way, the phase diagram for the 3D Bose mixtures has been obtained in Ref. \cite{ota_19}, by mean of the Popov theory. The equilibrium configuration in the new phase-separated phase was found to be characterized by a full space separation of the Bose-Einstein condensed components of the two atomic species, their thermal components remaining instead mixed, but with a finite magnetization. However in 2D, the calculation of the free energy, as well as the characterization of the new phase can not be assessed within the actual HF theory. In fact, any mean-field framework based on the quasi-condensate is expected to fail above the BKT transition point, where vortex proliferation destroys quasi-long range order, and the quasi-condensate becomes ill defined. We therefore need a reliable theoretical framework, which allows for the description of the 2D binary mixtures in both the superfluid and normal regimes.
+
+
+\section{Stochastic Projected Gross-Pitaevskii formalism}\label{model}
+ 
+We consider a weakly interacting scalar Bose-Bose mixture confined in 
+a box potential. The axial confinement is sufficiently strong such that
+it renders a uniform two-dimensional(2D) system on the transverse plane. 
+In order to study the mixture at finite temperature we employ the
+coupled stochastic (projected) Gross-Pitaevskii equation given by
+\begin{eqnarray}
+	i\hbar\frac{\partial}{\partial t}\psi_k({\bf x},t)&=& {\mathcal {\hat P}}\bigg\{
+		(1-i\gamma)\bigg[-\frac{\hbar^2 \nabla^2}{2m_k}
+		+ g_{kk}|\psi_{k}({\bf x},t)|^2 \nonumber\\
+		&+&g_{12}|\psi_{3-k}|^2 - \mu_k\bigg]\psi_k({\bf x},t) + \eta_k({\bf x},t)\bigg\},
+\label{cspgpe}
+\end{eqnarray}
+where ${\bf x} \equiv (x,y)$ are the Cartesian coordinates, $k \in {1,2}$ labels the species
+index, and the noisy complex ``classical" field are represented by $\psi_{kk}({\bf x},t)$. Here $\nabla^2$
+is the Laplacian in two dimensions; the repulsive intra- and the interspecies coupling strengths
+are given by $g_{kk}$ and $g_{12}$ respectively. The dynamics of the system described by SPGPE
+is divided into two parts: namely, the coherent or the ``$c$-field'' region
+which is defined by projector $\mathcal {\hat P}$ taking into account a finite number
+of macroscopically occupied low-lying modes upto an ultraviolet energy cutoff $\epsilon_{{\rm cut}}$, 
+which for the present work, reads as
+\begin{equation}
+	\epsilon_{{\rm cut}} = k_{\rm B} T\ln 2 + \mu
+\end{equation}
+with $\mu$, $k_{\rm B}$, and $T$ as the chemical potential, Boltzmann constant,
+and the temperature respectively.
+Assuming the occupation number spectra obeys Bose-Einstein
+statistics, this choice of cut-off guarantees that the mean occupation of the last included mode
+is of order $\sim 1$. The effect of high-lying modes is accounted by the Gaussian random noise
+which satisfies the following fluctuation-dissipation theorem given by
+\begin{equation}
+	\langle \eta({\bf x},t) \eta^*({\bf x}',t')\rangle = 2\hbar \gamma k_{\rm B} T
+	                              \delta({\bf x} - {\bf x}')\delta(t-t'),
+\end{equation}
+which is required for equilibration at a rate determined by the dissipative term 
+$\gamma = 0.01$(for the present work) brought about by the interaction between 
+the coherent(system) and the incoherent(bath)
+region. The Gaussian random variables satisfy the 
+property $\langle \eta({\bf x},t) \eta({\bf x}',t') \rangle 
+= \langle \eta^*({\bf x},t) \eta^*({\bf x}',t') \rangle= 0$.
+Here $\langle \cdots \rangle$ denotes the averaging  over  different  noise  
+realizations. It is worth mentioning here that in SPGPE individual results obtained 
+with independent noise realizations are equivalent to the individual results obtained from 
+independent experimental runs. Due to the random nature of the noise, the outcomes of each noise
+realizations  will  differ  from  one  another  as  is  the  case in experiments. Thus this method
+has a close resemblance to the experiments. Furthermore, since SPGPE simulates in a grand-canonical 
+ensemble, the number of atoms is not a conserved quantity. For a typical SPGPE run, this number is
+fixed by the number density through the chemical potential. To simulate the two-component formation
+we first obtain the equilibrium state by numerically propagating Eq.~(\ref{cspgpe}) in realtime
+with equal chemical potential $\mu_k = \mu$ and temperature $T$. For a finite-size uniform 2D 
+Bose-Bose mixture $\mu \approx (1 + g_{12}/g)\mu_0$, as in Eq.~(\ref{Eq.mu}) 
+where $(g_{12}/g) \in (0,1.2)$(considered for the present work), and $\mu_0$ is the chemical 
+potential of a single component Bose gas. It is to be noted that in
+the stochastic simulations, fixing chemcal potential fixes density. If the mixture satisfies 
+$g_{12}/g>1$, in certain noise realization, either one of the two components may get diminished at 
+the equilibrium state lowering the energy of the system. The density, however, remains fixed.
+To probe the physics of the binary
+mixture through the density profiles, one has to rely on individual simulation, 
+since averaging different stochastic realizations, as mentioned before,
+would wash away signatures of phase-separation because of the different possible spatial 
+orientation of the density profiles. These consequences stem from the random nature
+of the model. For the present study, since $\mu_1=\mu_2$, we choose only those individual runs 
+from the simulations when $N_1 \approx N_2$. %Since averaging is prohibited, the thermodynamic properties of the 
+%different phases cannot be evaluated.
+
+
+
+
+\section{Equilibrium density profiles}
+
+As the starting point for the characterization of the miscible-immiscible
+phase-transition, we compute the steady-state density profiles by
+propagating the system of Eqns.~(\ref{cspgpe}) in real-time in a uniform 
+2D hard-wall box of dimensions $L_x \times L_y = (50 \times 50)\mu$m consistent with 
+the experimental geometry at LKB~\cite{ville_18}. The axial degrees of freedom are frozen
+with $\omega_z= 2 \pi \times 1500$ Hz. Furthermore, we consider $^{87}$Rb atoms
+with approximately $1.8 \times 10^4$ atoms through $\mu_0/k_{\rm B} = 4.8$nK
+with $T_{\rm BKT}^\infty = 33.25$nK for a non-interacting mixture. We tune
+$g_{12}/g$ and $T/T_{\rm BKT}$ in order to probe the different regions
+on the phase-diagram. All throughout this article, we consider the intraspecies interaction
+of each species and masses to be equal $g_{11}=g_{22}=g$; $m_1=m_2=m$.
+
+At $T=0.1 T_{\rm BKT}$, with $g_{12}/g = 0.2, 0.5, 0.8, 0.9$, the mixture is completely miscible.
+That is, both the species have complete spatial overlap and satisfies the miscibility
+condition $g_{12}<\sqrt{g_{11}g_{22}}$. This is also evident from the phase-diagram. 
+However, when $g_{12}/g = 1.1$, we obtain the symmetry-broken 
+non-overlapping side-by-side density profiles as the ground 
+state as shown in Fig.. 
+On the other hand, when $T$ is close to $T_{\rm BKT}$, particularly when $T=0.9 T_{\rm BKT}$,
+the incoherent or the thermal cloud have finite contribution, and the interaction
+between the coherent and incoherent regions start to play significant role. For $g_{12}/g = 0.5$,
+the two species have substantial overlap, and a miscible mixture is obtained. However, for,
+$g_{12}/g = 0.9$, even if it satisfies the miscibility condition at $T=0$, becomes
+partially phase-separated at this temperature. This phase, identified by clusters in the
+equilibrium density profiles, has a close resemblance to the density profiles for $g_{12}/g = 1.1$,
+where the phase-separation tends to get suppressed because of thermal fluctuations.
+
+\begin{figure}
+	\includegraphics[width=0.9\linewidth]{pottilt.pdf}
+	\caption{Schematic diagram to illustrate the linear ramping of the potential to
+	  probe the centre of mass response. At $t=t_-$, the equilibrium solution of the binary
+	  mixture in an uniform box is obtained through SPGPE simulations. Which is 
+	  then subjected to a positive and negative linear potential ramp of the form $V_0 x$ 
+	  for respective species at $t=0$. The center of mass response of each of the species
+	  is then probed through the dynamics of the composite system for $t=t_+$.
+	  }
+	\label{pottilt}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%            Section:  Results and discussions                    %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+  \includegraphics[width=0.9\linewidth]{fitp5.pdf}
+  \includegraphics[width=0.9\linewidth]{psfit.pdf}
+	\caption{Oscillations of COM of the Bose mixture at $g_{12}/g = 0.5$(spin channel) 
+	and 1.1(density channel). Both the curves are fitted with 4-parameter cosinusoidal
+	function, as mentioned in the text.}
+         \label{osc}	
+\end{figure}
+
+
+
+
+\begin{figure}
+        \includegraphics[width=0.9\linewidth]{velfit.pdf}
+	\caption{Variation of spin speed $(c)$ of sound normalized to the Bogoliubov speed of 
+		 sound $(c_0 = \sqrt{gn/m})$ with $g_{12}/g$.
+          }
+        \label{velfit}
+\end{figure}
+
+
+
+
+\section{Dynamical response: Center of mass drift}\label{results}
+
+\begin{figure*}
+        \includegraphics[width=0.3\linewidth]{varcm1.pdf}
+        \includegraphics[width=0.3\linewidth]{varcm2.pdf}
+        \includegraphics[width=0.3\linewidth]{varcm3.pdf}
+	\caption{The center of mass motion of the Bose-Bose mixture under consideration at $T=0.9T_{\rm BKT}$ for 
+		 different values of $g_{12}/g$. Simulations are carried out for $V=0.05\mu_0$. Here ${\tilde x}_{\rm cm}$
+		 and ${\tilde y}_{\rm cm}$ are measured in units of $L_x/2$.}
+        \label{varcm}
+\end{figure*}
+
+
+In ultracold atom experiments, a natural observable is the center of mass
+motion of an atomic cloud which can be probed via in-situ density
+measurements~\cite{aidelsburger_15,bienaime_16}. For our case, this motion
+is initiated by first generating the equilibrium density profiles using
+Eq.~(\ref{cspgpe}) at given interaction strengths and temperature. 
+It is then suddenly subjected to a weak linear potential tilt of the
+form $\propto V_0 x$, where $V_0$ is the strength of the potential  which
+is of the order $10^{-2}\mu_0$. The application of the external potential
+renders each species of the mixture adapt itself to a displacement
+along the direction of the potential minima. These bring about marked 
+changes in the density and sound waves are emitted. From the evolution,
+we extract the center of mass drift along the $x$ and $y$ direction through 
+the equation given by
+\begin{equation}
+	{\bf x}_{\rm cm}(t) = \frac{\int{\bf x}|\psi({\bf x},t)|^2 {\rm d}{\bf x}}{\int|\psi({\bf x},t)|^2 {\rm d}{\bf x}}
+\end{equation}
+Furthermore, we set the dissipation and noise;
+$\gamma = \eta =0$ in Eqns.~(\ref{cspgpe}) and ensure the number of atoms to
+be conserved all throughout the evolution. The binary system now evolves in time
+obeying projected Gross-Pitaevskii equation for the classical field, stochastically 
+generated at $t=t_-$~\cite{blakie_08,davis_01}. This method has also been earlier
+used to model the growth of quasicondensate on an atom chip~\cite{proukakis_06}, 
+and is similar in essence to the truncated Wigner method for Bose condensed 
+gases~\cite{sinatra_02}. The whole scheme of probing the center of mass drift 
+of the binary mixtures has been outlined in Fig.~\ref{pottilt}. Similar experimental protocol 
+has been employed to measure the speed of sound in a box~\cite{garratt_19}.
+
+At low temperatures, $T=0.1T_{\rm BKT}$ and $g_{12}<g$, when a miscible mixture is obtained,
+the center of mass of each of the respective species at $t=0$ coincide at $x=y=0$ and subsequently 
+undergoes periodic oscillations, when let to
+evolve freely under the action of the tilted external potential. This is shown in Fig.~\ref{osc}.
+Furthermore, we use a fitting function of the form $A\cos(\omega t)$ to estimate the
+spin speed of sound, $c = \omega/k$. The obtained values of $c$ agree quite well with the
+theoretically predicted values, $c = \sqrt{(g-g_{12})n/2m}$; $n= (N_1+N_2)/(L_x \times L_y)$.
+The trend is shown in Fig.~\ref{velfit}. As expected, the frequency of oscillation of the center of mass is
+high when $g_{12}\ll g$. It tends to get smaller, as $g_{12} \rightarrow g$. For $g_{12} >g$,
+$\omega$ becomes imaginary, and spin speed of sound does not exist. A phase-separated state
+is obtained, and the sound mode in the density channel emerges. Its velocity is found
+to agree with the Bogoliubov speed of sound.
+
+At temperatures close to$T_{\rm BKT}, $ $T=0.9T_{\rm BKT}$, we encounter signatures 
+for phase-separation through the center of motion dynamics. The miscible phase $(g_{12}/g=0.5)$ 
+gives rise to oscillations accompanied by thermal fluctuations as shown in Fig. 
+However, for $g_{12}/g=0.9$, at $t=0$ the COM along $x$ and $y$ do not coincide at zero, 
+and tends to get separated further at subsequent times. Similar trajectory of the center
+of mass is observed for $g_{12}/g=1.1$. These are demonstrated through the numerical
+simulations in Figs.~\ref{varcm}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%                  Section: Conclusions                            %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusions}\label{conclusions}
+
+We have examnined in detail the role of thermal cloud to the phenomenon of
+miscible-immiscible transition in 2D uniform Bose-Bose mixtures. For this, we have employed the 
+beyond mean-field SPGPE theory adapted to binary ultracold mixtures to analyse the 
+effects of interaction between the thermal and the non-thermal atoms, eventually
+giving rise to a phase-separated state  when $g_{12}<g$ at $T\neq0$.
+Based on the mean-field Hartree-Fock theory, we have obtained
+the phase-diagram as a function of temperature and interaction strength, which is 
+further validated by SPGPE findings through the equilibrium density profiles. The phase-transition 
+temperature has also been identified. We believe the recent availability of box like traps
+for Bose gases could experimentally validate this prediction.
+We have also probed the center of mass response of each of the two species, which can also 
+be obtained from the in-situ density measurements. At low temperatures, when 
+miscible density profiles are to be expected, we have extracted the speed of sound from 
+the drift of the center of mass which agrees quite well with the analytical prediction. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%             Acknowledgements             %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{acknowledgments}
+ This work is supported by Provincia Autonoma di Trento.
+\end{acknowledgments}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%              Bibliography                  %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{refs}{}
+%\bibliographystyle{apsrev4-1}
+
+\end{document}
